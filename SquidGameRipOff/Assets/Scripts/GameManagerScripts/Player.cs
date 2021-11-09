@@ -9,6 +9,7 @@ public class Player
     public GameObject playerObject;
     public Animator animatorController;
     public Rigidbody playerRigidBody;
+    public GameObject playerRagdoll;
     public Avatars[] characterAvatars;
 
 
