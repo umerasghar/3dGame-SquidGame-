@@ -59,13 +59,13 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            mainPlayer.playerObject.SetActive(false);
-            mainPlayer.playerRagdoll.transform.position = playerTransform.position;
-            mainPlayer.playerRagdoll.SetActive(true);
-            isgrounded = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    mainPlayer.playerObject.SetActive(false);
+        //    mainPlayer.playerRagdoll.transform.position = playerTransform.position;
+        //    mainPlayer.playerRagdoll.SetActive(true);
+        //    isgrounded = true;
+        //}
         RaycastHit hit;
     
         if(Physics.Raycast(playerTransform.position,Vector3.down,out hit, Mathf.Infinity))
@@ -138,6 +138,14 @@ public class PlayerController : MonoBehaviour
 
             playerAnimator.SetBool("Jump", false);
             isgrounded = false;
+        }
+        if ( collision.gameObject.tag == "Obstacle")
+        {
+           // collision.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            mainPlayer.playerObject.SetActive(false);
+            mainPlayer.playerRagdoll.transform.position = playerTransform.position;
+            mainPlayer.playerRagdoll.SetActive(true);
+            isgrounded = true;
         }
     }
 
